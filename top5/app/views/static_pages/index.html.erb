@@ -1,0 +1,15 @@
+<h1>this is the homepage </h1>
+
+
+<%= link_to 'register', signup_path %>
+
+
+<h2> Login </h2>
+
+<%= form_tag login_path do %>
+
+  Email: <%= text_field_tag :email %>
+  Password: <%= password_field_tag :password %>
+  <%= submit_tag "log in" %>
+
+<% end %>

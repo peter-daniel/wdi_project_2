@@ -1,0 +1,13 @@
+<h1>Top 5 - register page</h1>
+
+<% if flash[:errors] %>
+  <p><%= flash[:errors] %></p>
+<% end %>
+
+<%= form_for :user, url: '/users' do |f| %>
+  Email: <%= f.text_field :email %>
+  Username: <%= f.text_field :username %>
+  Password: <%= f.password_field :password %>
+  Password Again: <%= f.password_field :password_confirmation %>
+  <%= f.submit('register') %>
+<% end %>
