@@ -1,15 +1,74 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+body {
+  font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: #eee;
+}
+
+a {
+  color: #000;
+
+  &:visited {
+    color: #666;
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+.header {
+  margin: -10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.header button{
+  margin: 20px;
+font-size: 14px;
+padding: 8px 14px;
+background: rgb(59, 127, 166);
+color: white;
+border: none;
+border-radius: 3px;
+margin-top: 20px;
+margin-right: 10px;
+}
+
+h1 {
+  padding-top: 70px;
+  letter-spacing: -2px;
+  text-align: center;
+  font-weight: 700;
+  line-height: -30px;
+}
+h2 {
+
+  letter-spacing: 2px;
+  text-align: center;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+#search-container{
+  padding-top: 30px;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 900px;
+}
+
+.top5-images {
+  margin: 0 10px 10px 0;
+  width:150px;
+  height: 200px;
+}
+
+.search-images {
+  margin: 0 10px 10px 0;
+  width:200px;
+  height: 285px;
+}

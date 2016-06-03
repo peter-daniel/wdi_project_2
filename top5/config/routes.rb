@@ -5,25 +5,32 @@ Rails.application.routes.draw do
   # resources :sessions
 
 
-root to: 'static_pages#index'
+root to: 'movies#start'
 
 
 post '/login' => 'sessions#create'
 get '/logout' => 'sessions#destroy'
 
-
+post '/signup' => 'users#new'
 get '/signup' => 'users#new'
 post '/users' => 'users#create'
 
-get '/home' => 'static_pages#home'
-
+#home page
+get '/start' => 'movies#start'
+# search field page
+get '/home' => 'movies#home'
+# search results
 post '/mresults' => 'movies#index'
+#show details of one movie in search
 get '/mresults/:imdbID' => 'movies#show'
+
+#get info on movie and add to database
 post '/create' => 'movies#create'
 
-post '/add_to_top' => 'movies#add_to_top'
+post '/remove_from_top' => 'movies#remove_from_top'
 
 get '/mymovies' => 'movies#user_movies'
 
 get '/mytop5' => 'movies#my_top_5'
+
 end

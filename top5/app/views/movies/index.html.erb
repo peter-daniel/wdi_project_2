@@ -1,14 +1,14 @@
 <h1>Movies#index</h1>
 
-
-<p>search results</p>
-
-<% @results["Search"].each do |put| %>
-    <img src= "<%= put["Poster"]%>">
-<a href="/mresults/<%= put["imdbID"]%>">
-    <p><%= put["Title"]%></p>
-    <p>(<%= put["Year"]%>)</p>
-</a>
-
-
+<% if flash[:error] %>
+    <p><%= flash[:error] %></p>
 <% end %>
+
+<div id='search-container'>
+<% @results["Search"].each do |put| %>
+  <a href="/mresults/<%= put["imdbID"]%>">
+    <img class='search-images' src= "<%= put["Poster"]%>">
+  </a>
+  <%= button_to "Add Movie to top 5", {:controller => 'movies', :action => 'create', :id => put["imdbID"] } %>
+<% end %>
+</div>

@@ -1,1 +1,8 @@
-<%= current_user.movies.where(:top5 => true).inspect %>
+
+<!-- list the movies that are in users top 5 -->
+
+<% current_user.movies.where(:top5 => true).each do |put| %>
+  <a href="/mresults/<%= put.id %>">
+    <img class='top5-images' src="<%= put.imgurl %>">
+  </a>
+<% end %>
