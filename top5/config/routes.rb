@@ -17,8 +17,13 @@ post '/users' => 'users#create'
 
 get '/home' => 'static_pages#home'
 
+post '/mresults' => 'movies#index'
+get '/mresults/:imdbID' => 'movies#show'
+post '/create' => 'movies#create'
 
-get '/mresults' => 'movies#index'
+post '/add_to_top' => 'movies#add_to_top'
 
+get '/mymovies' => 'movies#user_movies'
 
+get '/mytop5' => 'movies#my_top_5'
 end

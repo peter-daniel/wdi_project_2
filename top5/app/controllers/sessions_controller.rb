@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       redirect_to '/home'
     else
       flash[:error] = "your password is bad"
-      redirect_to '/login'
+      redirect_to '/'
     end
   end
 

@@ -1,11 +1,9 @@
-<h1>search some movies for gods sake!!!!!</h1>
+<h1>search some movies for god sake!!!!!</h1>
 
 <%= form_tag mresults_path do %>
 
-  Search by title: <%= text_field_tag  :thetitle %>
+  Search by title: <%= text_field_tag :searchterm %>
   <%= submit_tag "Submit" %>
 
-  Search by year: <%= text_field_tag  :theyear %>
-  <%= submit_tag "Submit" %>
 
 <% end %>

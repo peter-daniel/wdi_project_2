@@ -1,2 +1,14 @@
 <h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
+
+<% if flash[:error] %>
+    <p><%= flash[:error] %></p>
+<% end %>
+
+<h1><%= @pick["Title"] %></h1>
+<img src= "<%= @pick["Poster"]%>">
+<p>Actors: <span><%= @pick["Actors"] %></span></p>
+<p>Rating: <span><%= @pick["Rated"] %></span></p>
+
+
+
+  <%= button_to "Add Movie", { :controller => 'movies', :action => 'create', :id => @pick["imdbID"] } %>

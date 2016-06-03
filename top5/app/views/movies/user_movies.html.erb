@@ -1,0 +1,8 @@
+<% current_user.movies.each do |movie| %>
+  <img src="<%= movie.imgurl %>" alt="">
+
+  <!--  if movie isn't in top 5 show this button -->
+  <%= button_to "Add To Top 5", {:controller => "movies", :action => "add_to_top", :id => movie.id} %>
+  <!--  else we want to be able to remove it from top 5-->
+
+<% end %>
