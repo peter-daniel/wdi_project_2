@@ -1,5 +1,9 @@
 <h1>search some movies for god sake!!!!!</h1>
 
+<% if flash[:message] %>
+  <%= flash[:message] %>
+<% end %>
+
 <%= form_tag mresults_path do %>
 
   Search by title: <%= text_field_tag :searchterm %>

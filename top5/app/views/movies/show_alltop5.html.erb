@@ -1,0 +1,10 @@
+<div class='top5-list-global'>
+<% @top_movies.each do |username, movie| %>
+<div class="list-all-separately">
+  <%= username %><br>
+  <% movie.each do |f| %>
+    <img class='top5-images' src="<%= f.imgurl %>">
+  <% end %>
+  </div>
+<% end %>
+</div>

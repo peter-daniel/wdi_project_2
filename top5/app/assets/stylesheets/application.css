@@ -63,9 +63,22 @@ h2 {
 
 .top5-images {
   margin: 0 10px 10px 0;
-  width:150px;
-  height: 210px;
+  width:120px;
+  height:170px;
 }
+
+.list-all-separately{
+  display: flex;
+  flex-flow: column;
+  padding: 10px;
+  border-right: solid 8px #ccc;
+}
+
+.top5-list-global{
+  display: flex;
+
+}
+
 .top5-list{
   display: flex;
   flex-flow: column;

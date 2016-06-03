@@ -1,9 +1,6 @@
 
 <!-- list the movies that are in users top 5 -->
-<%= @top_movies.inspect %>
-<% @top_movies.each do |username, movie| %>
-  <%= username %>
-<% end %>
+
 
 <div class='top5-list'>
   <h3><%= @user.username %></h3>
@@ -11,5 +8,6 @@
   <a href="/mresults/<%= put.id %>">
     <img class='top5-images' src="<%= put.imgurl %>">
   </a>
+  <%= button_to "remove from list", {:controller => 'movies', :action => 'remove_from_top', :id => put.id } %>
 <% end %>
 </div>

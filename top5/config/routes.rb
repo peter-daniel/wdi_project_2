@@ -29,7 +29,7 @@ post '/create' => 'movies#create'
 
 post '/remove_from_top' => 'movies#remove_from_top'
 
-get '/mymovies' => 'movies#user_movies'
+get '/showall' => 'movies#show_alltop5'
 
 get '/mytop5' => 'movies#my_top_5'
 
