@@ -64,7 +64,11 @@ h2 {
 .top5-images {
   margin: 0 10px 10px 0;
   width:150px;
-  height: 200px;
+  height: 210px;
+}
+.top5-list{
+  display: flex;
+  flex-flow: column;
 }
 
 .search-images {

@@ -39,7 +39,7 @@ class MoviesController < ApplicationController
       movie.save
       if movie.save
         flash[:message] = "you have added to top 5"
-        redirect_to '/'
+        redirect_to '/mresults'
       else
         flash[:message] = "you have NOT added to top 5"
       end
@@ -48,7 +48,16 @@ class MoviesController < ApplicationController
 #############################################
 
   def my_top_5
+    @user = User.find(current_user.id)
+
+    @top_movies = Movie.joins(:user).where(:top5 => true)
+    @top_movies = @top_movies.group_by {|i| i.user.username}
+
+
+
   end
+
+
 
 #############################################
 
