@@ -4,9 +4,17 @@
 <% if flash[:message] %>
   <%= flash[:message] %>
 <% end %>
-<div class='content-container'>
-<%= form_tag mresults_path do %>
-  <%= text_field_tag :searchterm, "", class: 'text-field', autofocus: true, placeholder: 'Search by title' %>
-  <%= submit_tag "Submit", class: 'btn-large btn-thin' %>
-<% end %>
+
+<div class="frames">
+
+  <div class='content-container'>
+  <%= form_tag mresults_path do %>
+    <%= text_field_tag :searchterm, "", class: 'text-field', autofocus: true, placeholder: 'Search by title' %>
+    <%= submit_tag "Submit", class: 'btn-large btn-thin' %>
+  <% end %>
+  </div>
+
+  <iframe class="iframe" src="/mytop5" width="140" height="1300" frameBorder="0" scrolling="no" frameBorder="0" bgcolor="#38322f">
+  </iframe>
+
 </div>

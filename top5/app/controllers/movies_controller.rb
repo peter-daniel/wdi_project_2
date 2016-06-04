@@ -46,10 +46,8 @@ class MoviesController < ApplicationController
 
       movie.save
       if movie.save
-        flash[:message] = "you have added to top 5"
+        # flash[:message] = "add to 5"
         redirect_to '/home'
-      else
-        flash[:message] = "you have NOT added to top 5"
       end
     end
 

@@ -12,8 +12,10 @@
 
   <div class='header'>
   <% if current_user %>
-      <h1><%= current_user.username.upcase %>'S <span>TOP 5 MOVIES<span></h1>
-    <div><button class="btn-small"><a href="/logout">Logout</a></button></div>
+      <div class="title-position">
+        <h1><%= current_user.username.upcase %>'S <span>TOP 5 MOVIES<span></h1>
+        <div><button class="btn-small"><a href="/logout">Logout</a></button></div>
+    </div>
   <% end %>
   </div>
 
