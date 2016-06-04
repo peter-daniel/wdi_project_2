@@ -1,19 +1,21 @@
-<h1>Movies#index</h1>
-
 <% if flash[:error] %>
     <p><%= flash[:error] %></p>
 <% end %>
 
+<div class='content-container'>
+
 <%= form_tag mresults_path do %>
   <%= text_field_tag :searchterm, "", class: 'text-field', autofocus: true, placeholder: 'Search by title' %>
-  <%= submit_tag "Submit", class: 'btn-large btn-thin' %>
+  <%= submit_tag "Submit", class: 'btn-large btn-thin' %><br>
 <% end %>
 
-<div class='content-container'>
+<div class="search-layout">
 <% @results["Search"].each do |put| %>
+<div class="movie-layout">
   <a href="/mresults/<%= put["imdbID"]%>">
-    <img class='search-images' src= "<%= put["Poster"]%>">
-  </a>
-  <%= button_to "Add Movie to top 5", {:controller => 'movies', :action => 'create', :id => put["imdbID"] } %>
+    <img class='search-images' src= "<%= put["Poster"]%>"></a>
+    <%= button_to "ADD TO TOP 5", {:controller => 'movies', :action => 'create', :id => put["imdbID"] }, {class: 'btn-addto5' } %>
+</div>
 <% end %>
+</div>
 </div>

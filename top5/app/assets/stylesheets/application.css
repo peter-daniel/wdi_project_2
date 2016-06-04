@@ -12,6 +12,17 @@ body {
 BUTTONS
 /////////////////////////////////////*/
 
+.btn-addto5 {
+  color: #ddd;
+  width: 150px;
+  background: #fcf7c5;
+  border: 2px solid #ddd;
+  padding: 5px;
+  margin: 5px 0 15px 0;
+  border-radius: 3px;
+  font-size: 11px;
+  cursor: pointer;
+}
 
 .btn-large {
   color: white;
@@ -29,10 +40,10 @@ BUTTONS
   width: 100px;
   height: 40px;
   background: #fcf7c5;
+  border: 2px solid #ddd;
   padding: 2px;
   margin: 23px;
   border-radius: 5px;
-  border: 2px solid #ddd;
   font-size: 15px;
   cursor: pointer;
 }
@@ -97,7 +108,7 @@ LAYOUT
 }
 
 .content-container{
-  padding-top: 30px;
+  padding-top: 20px;
   margin: 0 auto;
   text-align: center;
   max-width: 900px;
@@ -105,8 +116,8 @@ LAYOUT
 
 .top5-images {
   margin: 0 10px 10px 0;
-  width:120px;
-  height:170px;
+  width: 120px;
+  height: 170px;
 }
 
 .list-all-separately{
@@ -126,9 +137,24 @@ LAYOUT
 }
 
 .search-images {
-  margin: 0 10px 10px 0;
-  width:200px;
-  height: 285px;
+  border-radius: 3px;
+  margin: 0 15px 0 0;
+  width:150px;
+  height: 225px;
+  box-shadow: 2px 2px 3px #ddd;
+}
+
+.search-layout{
+  margin-top: 30px;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+.movie-layout{
+  text-align: left;
+  display:flex;
+  flex-flow: column;
 }
 
 
