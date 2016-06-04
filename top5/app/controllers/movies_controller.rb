@@ -27,7 +27,24 @@ class MoviesController < ApplicationController
 
 # checking top-five in SCOPE (find in model) to stop users adding more than 5
     if current_user.movies.top_five.length >= 5
-      flash[:message] = "You've already got 5 movies!"
+      flash[:message] = "YOUR TOP 5 LIST IS FULL! REMOVE SOME TO ADD MORE"
+      redirect_to '/home'
+      return
+    elsif current_user.movies.top_five.length >= 4
+      flash[:message] = "YOUR TOP 5 LIST IS NOW FULL... REMOVE AND ADD OTHERS IF YOU'VE MESSED IT UP"
+      @pick = HTTParty.get "http://www.omdbapi.com/?i=#{params[:id]}"
+      movie = Movie.new
+      movie.actors = @pick['Actors']
+      movie.imgurl = @pick["Poster"]
+      movie.director = @pick["Director"]
+      movie.imdbID = @pick["imdbID"]
+
+      # set it to tru e by default
+      movie.top5 = true
+      #associate the user
+      movie.user_id = current_user.id
+
+      movie.save
       redirect_to '/home'
       return
     end
@@ -46,7 +63,7 @@ class MoviesController < ApplicationController
 
       movie.save
       if movie.save
-        # flash[:message] = "add to 5"
+        flash[:message] = "YOU HAVE ADDED TO YOUR TOP 5 FIVE SUCCESSFULLY... ADD SOME MORE!"
         redirect_to '/home'
       end
     end
@@ -60,6 +77,7 @@ class MoviesController < ApplicationController
 #############################################
 
   def show_alltop5
+    @user = User.find(current_user.id)
     # attached the user with the movies that top5 = true
     @top_movies = Movie.joins(:user).where(:top5 => true)
     # put them into a list associated with that user

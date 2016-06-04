@@ -1,10 +1,14 @@
+
+<div class="stretch-users-global">
 <div class='top5-list-global'>
 <% @top_movies.each do |username, movie| %>
 <div class="list-all-separately">
-  <%= username %><br>
-  <% movie.each do |f| %>
-    <img class='top5-images' src="<%= f.imgurl %>">
+  <div class="global-username"><%= username.upcase %>'S<br /> TOP 5 MOVIES</div><br>
+  <% movie.each do |put| %>
+    <a href="/mresults/<%= put["imdbID"] %>">
+    <img class='top5-images-global' src="<%= put.imgurl %>">
   <% end %>
   </div>
 <% end %>
+</div>
 </div>

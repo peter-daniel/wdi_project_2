@@ -7,8 +7,8 @@
 
   <div class='content-container'>
     <%= form_tag mresults_path do %>
-      <%= text_field_tag :searchterm, "", class: 'text-field', autofocus: true, placeholder: 'Search by title' %>
-      <%= submit_tag "Submit", class: 'btn-large btn-thin' %><br>
+      <%= text_field_tag :searchterm, "", class: 'text-field', autofocus: true, placeholder: 'SEARCH' %>
+      <%= submit_tag "SUBMIT", class: 'btn-large btn-thin' %><br>
     <% end %>
 
     <div class="search-layout">
@@ -21,6 +21,6 @@
       <% end %>
     </div>
   </div>
-  <iframe class="iframe" src="/mytop5" width="140" height="1300" frameBorder="0" scrolling="no" frameBorder="0">
+  <iframe class="iframe" src="/mytop5" width="140" height="1320" frameBorder="0" scrolling="no" frameBorder="0">
   </iframe>
 </div>

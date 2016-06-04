@@ -1,13 +1,14 @@
-<h1>Top 5 - register page</h1>
+<h1>REGISTER PAGE</h1>
 
 <% if flash[:errors] %>
   <p><%= flash[:errors] %></p>
 <% end %>
-
+<div class="login-container">
 <%= form_for :user, url: '/users' do |f| %>
-  Email: <%= f.text_field :email %>
-  Username: <%= f.text_field :username %>
-  Password: <%= f.password_field :password %>
-  Password Again: <%= f.password_field :password_confirmation %>
-  <%= f.submit('register') %>
+  <%= f.text_field :email, class: 'text-field', autofocus: true, placeholder: 'chuck@norris.com' %><br />
+  <%= f.text_field :username, class: 'text-field', autofocus: true, placeholder: 'CHUCKY' %><br />
+  <%= f.password_field :password, class: 'text-field', autofocus: true, placeholder: 'PASSWORD' %><br />
+  <%= f.password_field :password_confirmation, class: 'text-field', autofocus: true, placeholder: 'PASSWORD AGAIN' %><br />
+  <%= f.submit 'register', class: 'btn-large btn2'  %>
 <% end %>
+</div>

@@ -3,15 +3,12 @@
 
 <div class="stretch">
 <div class='top5-list'>
-  <h5><%= @user.username.upcase %>'S'<br />TOP 5 MOVIES</h5>
+  <div class="local-username"><%= @user.username.upcase %>'S'<br />TOP 5 MOVIES</div>
 <% current_user.movies.where(:top5 => true).each do |put| %>
-  <a href="/mresults/<%= put.id %>">
+  <a href="/mresults/<%= put["imdbID"] %>"target="_top">
     <img class='top5-images' src="<%= put.imgurl %>">
   </a>
   <%= button_to "X", {:controller => 'movies', :action => 'remove_from_top', :id => put.id }, {class: 'btn-remove-from5' } %>
 <% end %>
 </div>
-
-
-
 </div>

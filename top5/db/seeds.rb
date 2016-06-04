@@ -1,4 +1,4 @@
 
 
-# Movie.delete_all
+Movie.delete_all
 User.delete_all

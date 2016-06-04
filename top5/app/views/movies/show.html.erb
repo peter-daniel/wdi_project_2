@@ -1,14 +1,19 @@
-<h1>Movies#show</h1>
+
 
 <% if flash[:error] %>
     <p><%= flash[:error] %></p>
 <% end %>
+<div class='show-container'>
+<div><img class="show-poster" src= "<%= @pick["Poster"]%>"></div>
+<div class='show-details'>
+  <p>Title: <span><%= @pick["Title"] %></span></p>
+  <p>Director: <span><%= @pick["Director"] %></span></p>
+  <p>Year: <span><%= @pick["Year"] %></span></p>
+  <p>Actors: <span><%= @pick["Actors"] %></span></p>
+  <p>Rating: <span><%= @pick["Rated"] %></span></p>
+  <%= button_to "ADD TO YOUR TOP 5", { :controller => 'movies', :action => 'create', :id => @pick["imdbID"] }, {class: 'btn-addto5-from-details' } %>
+</div>
 
-<h1><%= @pick["Title"] %></h1>
-<img src= "<%= @pick["Poster"]%>">
-<p>Actors: <span><%= @pick["Actors"] %></span></p>
-<p>Rating: <span><%= @pick["Rated"] %></span></p>
 
 
-
-<%= button_to "Add Movie to top 5", { :controller => 'movies', :action => 'create', :id => @pick["imdbID"] } %>
+</div>
