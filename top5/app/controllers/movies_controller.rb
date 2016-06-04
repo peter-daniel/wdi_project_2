@@ -75,13 +75,10 @@ class MoviesController < ApplicationController
 
 #############################################
 
-  def start
-    # @users = User.all
-  end
-
-#############################################
-
   def home
+    #   if current_user.nil?
+    #   redirect_to login_path
+    # end
   end
 
 

@@ -1,0 +1,18 @@
+<h1>login</h1>
+
+
+
+<div class='content-container'>
+<%= form_tag login_path do %>
+
+  <%= text_field_tag :email, "", class: 'text-field', autofocus: true, placeholder: 'john@smith.com' %><br>
+
+  <%= password_field_tag :password, "", class: 'text-field', autofocus: true, placeholder: 'password'  %><br>
+  <%= submit_tag "LOG IN", class: 'btn-large' %>
+<% end %>
+
+<%= button_to 'REGISTER', signup_path, class: 'btn-large btn2' %>
+
+<script>
+  $('.logout-btn').hide();
+</script>

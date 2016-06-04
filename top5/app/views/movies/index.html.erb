@@ -4,7 +4,12 @@
     <p><%= flash[:error] %></p>
 <% end %>
 
-<div id='search-container'>
+<%= form_tag mresults_path do %>
+  <%= text_field_tag :searchterm, "", class: 'text-field', autofocus: true, placeholder: 'Search by title' %>
+  <%= submit_tag "Submit", class: 'btn-large btn-thin' %>
+<% end %>
+
+<div class='content-container'>
 <% @results["Search"].each do |put| %>
   <a href="/mresults/<%= put["imdbID"]%>">
     <img class='search-images' src= "<%= put["Poster"]%>">

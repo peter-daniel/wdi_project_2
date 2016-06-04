@@ -5,11 +5,13 @@ Rails.application.routes.draw do
   # resources :sessions
 
 
-root to: 'movies#start'
+root to: 'movies#home'
 
 
 post '/login' => 'sessions#create'
 get '/logout' => 'sessions#destroy'
+
+get '/login' => 'users#login'
 
 post '/signup' => 'users#new'
 get '/signup' => 'users#new'

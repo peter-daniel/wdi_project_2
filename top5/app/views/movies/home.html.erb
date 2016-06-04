@@ -1,13 +1,12 @@
-<h1>search some movies for god sake!!!!!</h1>
+
+
 
 <% if flash[:message] %>
   <%= flash[:message] %>
 <% end %>
-
+<div class='content-container'>
 <%= form_tag mresults_path do %>
-
-  Search by title: <%= text_field_tag :searchterm %>
-  <%= submit_tag "Submit" %>
-
-
+  <%= text_field_tag :searchterm, "", class: 'text-field', autofocus: true, placeholder: 'Search by title' %>
+  <%= submit_tag "Submit", class: 'btn-large btn-thin' %>
 <% end %>
+</div>
