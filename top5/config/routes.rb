@@ -10,15 +10,15 @@ root to: 'users#login'
 
 post '/login' => 'sessions#create'
 get '/logout' => 'sessions#destroy'
-
 get '/login' => 'users#login'
 
 post '/signup' => 'users#new'
 get '/signup' => 'users#new'
 post '/users' => 'users#create'
+get '/users/edit' => 'users#edit'
+patch '/users/update' => 'users#update'
 
-#home page
-get '/start' => 'movies#start'
+
 # search field page
 get '/home' => 'movies#home'
 # search results
@@ -28,11 +28,10 @@ get '/mresults/:imdbID' => 'movies#show'
 
 #get info on movie and add to database
 post '/create' => 'movies#create'
-
 post '/remove_from_top' => 'movies#remove_from_top'
-
 get '/showall' => 'movies#show_alltop5'
-
 get '/mytop5' => 'movies#my_top_5'
+
+
 
 end

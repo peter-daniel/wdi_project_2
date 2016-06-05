@@ -10,7 +10,8 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to '/home'
     else
-      flash[:errors] = {'class' => 'errors', :errors => user.errors.full_messages}
+      flash[:message] = "INCORRECT LOGIN TRY AGAIN..."
+      # flash[:errors] = {'class' => 'errors', :errors => user.errors.full_messages}
       redirect_to '/signup'
     end
   end
@@ -23,7 +24,15 @@ class UsersController < ApplicationController
   #############################################
 
   def login
-    # redirect_to '/'
+  end
+
+  def edit
+  end
+
+  def update
+    current_user.update_attributes(user_params)
+    flash[:message] = "YOUR UPDATED"
+    redirect_to root_path
   end
 
 end

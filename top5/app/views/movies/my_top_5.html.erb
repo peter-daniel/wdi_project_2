@@ -1,9 +1,13 @@
+<div class="top-flex">
 <button class="btn-logout"><a href="/logout">LOGOUT</a></button>
+<p class="small-text"><a href="/users/edit">change your details</a></p>
+</div>
+
 <div class='header-area'>
 <% if current_user %>
     <div class="title-position">
       <h1><%= current_user.username.upcase %>'S <span>TOP 5 MOVIES<span></h1>
-      <div><button class="btn-small"><a href="/showall">ALL TOP 5's</a></button></div>
+      <div><button class="btn-small"><a href="/showall">ALL TOP 5s</a></button></div>
   </div>
 <% end %>
 </div>
@@ -13,7 +17,7 @@
 
 <div class="stretch">
 <div class='top5-list'>
-  <div class="local-username"><%= @user.username.upcase %>'S'<br />TOP 5 LIST</div>
+  <div class="local-username"><%= @user.username.upcase %>'S<br />TOP 5 LIST</div>
 <% current_user.movies.where(:top5 => true).each do |put| %>
   <a href="/mresults/<%= put["imdbID"] %>"target="_top">
     <img class='top5-images' src="<%= put.imgurl %>">
