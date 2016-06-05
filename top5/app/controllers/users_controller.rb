@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def new
   end
 
@@ -16,9 +17,9 @@ class UsersController < ApplicationController
     end
   end
 
-    # a catch all for security and convenience
+  # a catch all for security and convenience
   def user_params
-      params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
 
   #############################################
@@ -26,13 +27,19 @@ class UsersController < ApplicationController
   def login
   end
 
+  #############################################
+
   def edit
   end
+
+  #############################################
 
   def update
     current_user.update_attributes(user_params)
     flash[:message] = "YOUR UPDATED"
     redirect_to root_path
   end
+
+  #############################################
 
 end

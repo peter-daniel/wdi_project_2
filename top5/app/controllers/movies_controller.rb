@@ -27,51 +27,51 @@ class MoviesController < ApplicationController
 
 #############################################
 
-    def create
+  def create
 
 # checking top-five in SCOPE (find in model) to stop users adding more than 5
-    if current_user.movies.top_five.length >= 5
-      flash[:message] = "YOUR TOP 5 LIST IS FULL! REMOVE SOME TO ADD MORE"
+  if current_user.movies.top_five.length >= 5
+    flash[:message] = "YOUR TOP 5 LIST IS FULL! REMOVE SOME TO ADD MORE."
+    redirect_to '/home'
+    return
+  elsif current_user.movies.top_five.length >= 4
+    flash[:message] = "YOUR LIST IS COMPLETE!"
+    @pick = HTTParty.get "http://www.omdbapi.com/?i=#{params[:id]}"
+    movie = Movie.new
+    movie.actors = @pick['Actors']
+    movie.imgurl = @pick["Poster"]
+    movie.director = @pick["Director"]
+    movie.imdbID = @pick["imdbID"]
+
+    # set it to tru e by default
+    movie.top5 = true
+    #associate the user
+    movie.user_id = current_user.id
+
+    movie.save
+    redirect_to '/home'
+    return
+  end
+
+# make a new request to omdb api to get the information from the movie again.
+    @pick = HTTParty.get "http://www.omdbapi.com/?i=#{params[:id]}"
+    movie = Movie.new
+    movie.actors = @pick['Actors']
+    movie.imgurl = @pick["Poster"]
+    movie.director = @pick["Director"]
+    movie.imdbID = @pick["imdbID"]
+
+    # set it to tru e by default
+    movie.top5 = true
+    #associate the user
+    movie.user_id = current_user.id
+
+    movie.save
+    if movie.save
+      flash[:message] = "YOU HAVE ADDED TO YOUR TOP 5 FIVE... ADD SOME MORE!"
       redirect_to '/home'
-      return
-    elsif current_user.movies.top_five.length >= 4
-      flash[:message] = "YOUR LIST IS COMPLETE! "
-      @pick = HTTParty.get "http://www.omdbapi.com/?i=#{params[:id]}"
-      movie = Movie.new
-      movie.actors = @pick['Actors']
-      movie.imgurl = @pick["Poster"]
-      movie.director = @pick["Director"]
-      movie.imdbID = @pick["imdbID"]
-
-      # set it to tru e by default
-      movie.top5 = true
-      #associate the user
-      movie.user_id = current_user.id
-
-      movie.save
-      redirect_to '/home'
-      return
     end
-
-  # make a new request to omdb api to get the information from the movie again.
-      @pick = HTTParty.get "http://www.omdbapi.com/?i=#{params[:id]}"
-      movie = Movie.new
-      movie.actors = @pick['Actors']
-      movie.imgurl = @pick["Poster"]
-      movie.director = @pick["Director"]
-      movie.imdbID = @pick["imdbID"]
-
-      # set it to tru e by default
-      movie.top5 = true
-      #associate the user
-      movie.user_id = current_user.id
-
-      movie.save
-      if movie.save
-        flash[:message] = "YOU HAVE ADDED TO YOUR TOP 5 FIVE... ADD SOME MORE!"
-        redirect_to '/home'
-      end
-    end
+  end
 
 #############################################
 
@@ -97,11 +97,10 @@ class MoviesController < ApplicationController
 #############################################
 
   def home
-    #   if current_user.nil?
+    #if current_user.nil?
     #   redirect_to login_path
     # end
   end
-
 
 #############################################
 

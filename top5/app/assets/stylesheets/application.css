@@ -290,7 +290,6 @@ LAYOUT
   box-shadow: 2px 2px 3px #dbd59d;
 }
 
-
 .show-details{
   line-height: 1;
   font-family: 'Teko', sans-serif;
@@ -299,11 +298,11 @@ LAYOUT
   text-align: left;
   width: 200px;
   color: #999;
-  letter-spacing: 1px;
+  letter-spacing: .3px;
 }
 
 .show-details span {
-color: black;
+  color: black;
 
 }
 .top5-list-global{

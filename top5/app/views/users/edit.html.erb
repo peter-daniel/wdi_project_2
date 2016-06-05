@@ -1,14 +1,13 @@
 <h1>EDIT DETAILS</h1>
 
-
 <div class="login-container">
 
-<%= form_for current_user, url: '/users/update' , method: :patch do |f| %>
-  <%= f.text_field :email, class: 'text-field', autofocus: true, placeholder: 'chuck@norris.com' %><br />
-  <%= f.text_field :username, class: 'text-field', autofocus: true, placeholder: 'CHUCKY' %><br />
-  <%= f.password_field :password, class: 'text-field', autofocus: true, placeholder: 'PASSWORD' %><br />
-  <%= f.password_field :password_confirmation, class: 'text-field', autofocus: true, placeholder: 'PASSWORD AGAIN' %><br />
-  <%= f.submit 'SUBMIT', class: 'btn-large btn2'  %>
-<% end %>
+  <%= form_for current_user, url: '/users/update' , method: :patch do |f| %>
+    <%= f.text_field :email, class: 'text-field', autofocus: true, placeholder: 'chuck@norris.com' %><br />
+    <%= f.text_field :username, class: 'text-field', autofocus: true, placeholder: 'CHUCKY' %><br />
+    <%= f.password_field :password, class: 'text-field', autofocus: true, placeholder: 'PASSWORD' %><br />
+    <%= f.password_field :password_confirmation, class: 'text-field', autofocus: true, placeholder: 'PASSWORD AGAIN' %><br />
+    <%= f.submit 'SUBMIT', class: 'btn-large btn2'  %>
+  <% end %>
 
 </div>

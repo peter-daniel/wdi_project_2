@@ -1,17 +1,22 @@
+
+<!-- background image added to give context to the app -->
 <div class="home-background">
 
 <h1><span>TOP 5 MOVIE LISTS</span>: LOGIN</h1>
 
 <div class='login-container'>
+
   <% if flash[:message] %>
     <div class="flash"><%= flash[:message]%></div>
   <% end %>
-<%= form_tag login_path do %>
-  <%= text_field_tag :email, "", class: 'text-field', autofocus: true, placeholder: 'chuck@norris.com' %><br>
-  <%= password_field_tag :password, "", class: 'text-field', autofocus: true, placeholder: 'password'  %><br>
-  <%= submit_tag "LOG IN", class: 'btn-large' %>
-<% end %>
-<h2>OR</h2>
-<%= button_to 'REGISTER', signup_path, class: 'btn-large btn2' %>
+
+  <%= form_tag login_path do %>
+    <%= text_field_tag :email, "", class: 'text-field', autofocus: true, placeholder: 'chuck@norris.com' %><br>
+    <%= password_field_tag :password, "", class: 'text-field', autofocus: true, placeholder: 'password'  %><br>
+    <%= submit_tag "LOG IN", class: 'btn-large' %>
+  <% end %>
+
+  <h2>OR</h2>
+  <%= button_to 'REGISTER', signup_path, class: 'btn-large btn2' %>
 
 </div>

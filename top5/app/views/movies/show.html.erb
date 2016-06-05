@@ -1,33 +1,35 @@
 <div class="top-flex">
-<button class="btn-logout"><a href="/logout">LOGOUT</a></button>
-<p class="small-text"><a href="/users/edit">change your details</a></p>
+  <button class="btn-logout"><a href="/logout">LOGOUT</a></button>
+  <p class="small-text"><a href="/users/edit">change your details</a></p>
 </div>
 
 <div class='header-area'>
-<% if current_user %>
+  <% if current_user %>
     <div class="title-position">
       <h1><%= current_user.username.upcase %>'S <span>TOP 5 MOVIES<span></h1>
       <div><button class="btn-small"><a href="/showall">ALL TOP 5s</a></button></div>
-  </div>
-<% end %>
+    </div>
+  <% end %>
 </div>
 
-<% if flash[:error] %>
+  <% if flash[:error] %>
     <p><%= flash[:error] %></p>
-<% end %>
+  <% end %>
+
 <div class='show-container'>
-<div>
-  <div><button class="btn-small-showpage"><a href="/home">BACK TO SEARCH</a></button></div>
-  <%= button_to "ADD TO TOP 5", { :controller => 'movies', :action => 'create', :id => @pick["imdbID"] }, {class: 'btn-small-showpage' } %>
+  <div>
+    <div><button class="btn-small-showpage"><a href="/home">BACK TO SEARCH</a></button></div>
+    <%= button_to "ADD TO TOP 5", { :controller => 'movies', :action => 'create', :id => @pick["imdbID"] }, {class: 'btn-small-showpage' } %>
+    </div>
+  <div><img class="show-poster" src= "<%= @pick["Poster"]%>"></div>
+    <div class='show-details'>
+      <p>Title: <span><%= @pick["Title"] %></span></p>
+      <p>Director: <span><%= @pick["Director"] %></span></p>
+      <p>Year: <span><%= @pick["Year"] %></span></p>
+      <p>Actors: <span><%= @pick["Actors"] %></span></p>
+      <p>Plot: <span><%= @pick["Plot"] %></span></p>
+      <p>Rating: <span><%= @pick["Rated"] %></span></p>
+    </div>
   </div>
-<div><img class="show-poster" src= "<%= @pick["Poster"]%>"></div>
-<div class='show-details'>
-  <p>Title: <span><%= @pick["Title"] %></span></p>
-  <p>Director: <span><%= @pick["Director"] %></span></p>
-  <p>Year: <span><%= @pick["Year"] %></span></p>
-  <p>Actors: <span><%= @pick["Actors"] %></span></p>
-  <p>Rating: <span><%= @pick["Rated"] %></span></p>
-</div>
-</div>
   <iframe class="iframe" src="/mytop5" width="160" height="1241" frameBorder="0" scrolling="no" frameBorder="0" bgcolor="#38322f">
 </div>

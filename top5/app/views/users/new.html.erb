@@ -1,20 +1,24 @@
+
+<!-- background image added to give context to the app -->
 <div class="home-background reg">
 
-<h1>REGISTER PAGE</h1>
+  <h1>REGISTER PAGE</h1>
 
-<% if flash[:errors] %>
-  <p><%= flash[:errors] %></p>
-<% end %>
-<div class="login-container">
-<%= form_for :user, url: '/users' do |f| %>
-  <%= f.text_field :email, class: 'text-field', autofocus: true, placeholder: 'chuck@norris.com' %><br />
-  <%= f.text_field :username, class: 'text-field', autofocus: true, placeholder: 'CHUCKY' %><br />
-  <%= f.password_field :password, class: 'text-field', autofocus: true, placeholder: 'PASSWORD' %><br />
-  <%= f.password_field :password_confirmation, class: 'text-field', autofocus: true, placeholder: 'PASSWORD AGAIN' %><br />
-  <%= f.submit 'REGISTER', class: 'btn-large btn2'  %>
-<% end %>
-<h2>OR</h2>
-<%= button_to 'LOG IN', '/login', class: 'btn-large' %>
+  <% if flash[:errors] %>
+    <p><%= flash[:errors] %></p>
+  <% end %>
 
-</div>
+  <div class="login-container">
+    <%= form_for :user, url: '/users' do |f| %>
+      <%= f.text_field :email, class: 'text-field', autofocus: true, placeholder: 'chuck@norris.com' %><br />
+      <%= f.text_field :username, class: 'text-field', autofocus: true, placeholder: 'CHUCKY' %><br />
+      <%= f.password_field :password, class: 'text-field', autofocus: true, placeholder: 'PASSWORD' %><br />
+      <%= f.password_field :password_confirmation, class: 'text-field', autofocus: true, placeholder: 'PASSWORD AGAIN' %><br />
+      <%= f.submit 'REGISTER', class: 'btn-large btn2'  %>
+    <% end %>
+
+    <h2>OR</h2>
+    <%= button_to 'LOG IN', '/login', class: 'btn-large' %>
+
+  </div>
 </div>
