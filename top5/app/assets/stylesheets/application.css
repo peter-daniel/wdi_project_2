@@ -11,30 +11,32 @@ body {
 }
 
 .iframe{
-  border-left: 2px dashed #3a3431;
+  border-left: 3px dashed #3a3431;
   position: absolute;
   right: 0;
   top: -420px;
 }
 .stretch{
-  background-color: #38322f;
   height: 1500px;
-  width: 150px;
+  width: 160px;
+  background:url('movie_placeholder.jpg');
+  background-position: -21px 66px;
+  background-repeat: no-repeat;
+  background-color: #38322f;
 }
 
 .stretch-users-global{
-  background-color: #38322f;
-  height: 912px;
+  background-color: #13747d;
+  height: 720px;
   width: 3000px;
-
 }
 
 .flash{
-  margin: 30px;
+  margin: 30px 150px;
   font-size: 70px;
   line-height: 1;
   font-weight:800;
-  color: #c6c29b;
+  color: #e5e1b7;
  font-family: 'Teko', sans-serif;
 }
 
@@ -45,42 +47,61 @@ BUTTONS
 /////////////////////////////////////*/
 .btn-addto5-from-details {
   font-family: 'Teko', sans-serif;
-  color: white;
+  color: #0abfbc;
   width: 150px;
-  background: #0abfbc;
-  border: 1px solid #0abfbc;
+  background: #fcf7c5;
+  border: 2px solid #0abfbc;
   padding: 6px 6px 3px 6px;
   border-radius: 3px;
   font-size: 18px;
   cursor: pointer;
   letter-spacing: .8px;
+  transition: all 0.2s ease;
 }
+.btn-addto5-from-details:hover {
+  background: #0abfbc;
+  color: white;
+}
+
 .btn-addto5 {
   font-family: 'Teko', sans-serif;
   position: absolute;
   color: #0abfbc;
   width: 40px;
   background: #fcf7c5;
-  border: 1px solid #0abfbc;
+  border: 2px solid #0abfbc;
   padding: 5px 5px 2px 5px;
-  margin: -225px 0 15px 5px;
+  margin: -235px 0 15px 5px;
   border-radius: 3px;
   font-size: 15px;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
+.btn-addto5:hover {
+  background: #0abfbc;
+  color: white;
+}
+
+
 .btn-remove-from5 {
   font-family: 'Teko', sans-serif;
   position: absolute;
   color: #0abfbc;
   width: 22px;
   background: #fcf7c5;
-  border: 1px solid #0abfbc;
+  border: 2px solid #0abfbc;
   padding: 1px 2px 0 2px;
   margin: -162px 0 15px 5px;
   border-radius: 3px;
   font-size: 13px;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
+.btn-remove-from5:hover {
+  background: #0abfbc;
+  color: white;
+}
+
 
 .btn-large {
   font-family: 'Teko', sans-serif;
@@ -93,6 +114,11 @@ BUTTONS
   border: 1px solid #ccc;
   font-size: 25px;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-large:hover{
+  background: #0abfbc;
 }
 
 
@@ -111,42 +137,50 @@ BUTTONS
   width: 80px;
   height: 35px;
   background: #fcf7c5;
-  border: 2px solid #ddd;
+  border: 2px solid #d0cca2;
   padding: 3px 2px 0 2px;
   margin: 10px;
   border-radius: 5px;
   font-size: 20px;
   cursor: pointer;
+  position: absolute;
+  top: 0;
 }
 
 
 .btn-small {
   font-family: 'Teko', sans-serif;
-  width: 150px;
+  width: 160px;
   height: 40px;
   background: #fcf7c5;
-  border: 2px solid #ddd;
+  border: 2px solid #d0cca2;
   padding: 3px 3px 3px 3px;
-  margin: 37px 0 0 20px;
+  margin: 37px 0 0 0;
   border-radius: 5px;
   font-size: 25px;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.btn-logout a:link, .btn-logout a:active,  .btn-logout a:visited, .btn-logout a:hover {
-  text-decoration: none;
-  color: #ddd;
+.btn-small:hover, .btn-logout:hover{
+  background: #3a3431;
+  border: 2px solid #3a3431;
 }
-.btn-small a:link, .btn-small a:active,  .btn-small a:visited, .btn-small a:hover {
+
+.btn-logout a:link, .btn-logout a:active,  .btn-logout a:visited {
   text-decoration: none;
-  color: #ddd;
+  color: #d0cca2;
+}
+.btn-small a:link, .btn-small a:active,  .btn-small a:visited{
+  text-decoration: none;
+  color: #d0cca2;
 }
 
 
 
 input.text-field, placeholder {
   font-family: 'Teko', sans-serif;
-  color: #d1cda9;
+  color: #d0cca2;
 }
 
 input.text-field, textarea {
@@ -169,7 +203,7 @@ input:-webkit-autofill {
   padding: 5px 5px 0 17px;
   margin: 10px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 2px solid #d0cca2;
   font-size: 15px;
 }
 
@@ -185,7 +219,7 @@ LAYOUT
 /////////////////////////////////////*/
 
 .header-area {
-  margin-top: 0;
+  margin-top: 90px;
   width: 100%;
   text-align: center;
 }
@@ -247,8 +281,6 @@ LAYOUT
 color: black;
 
 }
-
-
 .top5-list-global{
   display: flex;
   margin-bottom: 10px
@@ -257,41 +289,54 @@ color: black;
 .list-all-separately{
   display: flex;
   flex-flow: column;
-  padding: 19px 20px;
+  padding: 15px 20px;
   border-right: dashed 2px #fcf7c5;
 }
 
 .top5-images-global {
-  margin: 0 0 10px 0;
-  width: 100px;
-  height: 150px;
+  margin: -16px 0 19px 0;
+  width: 80px;
+  height: 115px;
   border-radius: 3px;
   border: 1px solid #29221f;
   box-shadow: 2px 2px 3px #29221f;
+  transition: all 0.2s ease-in-out;
+}
+.top5-images-global:hover{
+  transform: scale(1.02);
 }
 
 .top5-images {
-  margin: 0 0 10px 0;
+  margin: 0 0 9px 0;
   width: 100px;
   height: 150px;
   border-radius: 3px;
   border: 1px solid #29221f;
   box-shadow: 2px 2px 3px #29221f;
+  transition: all 0.2s ease-in-out;
+}
+.top5-images:hover{
+  transform: scale(1.02);
 }
 
 .top5-list{
-  margin-left: 20px;
+  margin-left: 30px;
   display: flex;
   flex-flow: column;
 }
 
 .search-images {
   border-radius: 3px;
-  margin: 0 15px 0 0;
+  margin: 0 15px 10px 0;
   width:150px;
   height: 225px;
   box-shadow: 2px 2px 3px #ddd;
+  transition: all 0.2s ease-in-out;
 }
+.search-images:hover{
+  transform: scale(1.02);
+}
+
 
 .search-layout{
   margin-top: 30px;
@@ -318,7 +363,7 @@ TEXT
   line-height:20px;
   margin: 0;
   padding: 22px 0 10px 0;
-  color: white;
+  color: #fcf7c5;
 }
 
 .global-username{
@@ -327,7 +372,7 @@ TEXT
   line-height:16px;
   margin: 0;
   padding: 0;
-  color: white;
+  color: #fcf7c5;
 }
 
 a:link, a:active, a:visited, a:hover {
@@ -346,7 +391,7 @@ h1 {
 }
 
 h1 span{
-  color: #29221f;
+  color: #b21729;
 }
 
 h2 {

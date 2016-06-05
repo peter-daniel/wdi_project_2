@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # resources :sessions
 
 
-root to: 'movies#home'
+root to: 'users#login'
 
 
 post '/login' => 'sessions#create'

@@ -5,6 +5,7 @@ class MoviesController < ApplicationController
   def remove_from_top
     Movie.find(params[:id]).update(:top5 => false)
     redirect_to mytop5_path
+    # flash[:message] = "."
   end
 
 #############################################
@@ -13,6 +14,9 @@ class MoviesController < ApplicationController
     # grabbing API
     @results = HTTParty.get "http://www.omdbapi.com/?s=#{params[:searchterm]}"
     @imdbID = @results['imdbID']
+    if :searchterm.nil?
+      flash[:message] = "YOUR SEARCH RETURNED NO RESULTS"
+    end
   end
 
 #############################################
@@ -31,7 +35,7 @@ class MoviesController < ApplicationController
       redirect_to '/home'
       return
     elsif current_user.movies.top_five.length >= 4
-      flash[:message] = "YOUR TOP 5 LIST IS NOW FULL... REMOVE AND ADD OTHERS IF YOU'VE MESSED IT UP"
+      flash[:message] = "YOUR LIST IS COMPLETE! "
       @pick = HTTParty.get "http://www.omdbapi.com/?i=#{params[:id]}"
       movie = Movie.new
       movie.actors = @pick['Actors']
@@ -48,6 +52,7 @@ class MoviesController < ApplicationController
       redirect_to '/home'
       return
     end
+
   # make a new request to omdb api to get the information from the movie again.
       @pick = HTTParty.get "http://www.omdbapi.com/?i=#{params[:id]}"
       movie = Movie.new
@@ -63,7 +68,7 @@ class MoviesController < ApplicationController
 
       movie.save
       if movie.save
-        flash[:message] = "YOU HAVE ADDED TO YOUR TOP 5 FIVE SUCCESSFULLY... ADD SOME MORE!"
+        flash[:message] = "YOU HAVE ADDED TO YOUR TOP 5 FIVE... ADD SOME MORE!"
         redirect_to '/home'
       end
     end

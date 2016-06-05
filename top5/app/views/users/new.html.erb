@@ -9,6 +9,9 @@
   <%= f.text_field :username, class: 'text-field', autofocus: true, placeholder: 'CHUCKY' %><br />
   <%= f.password_field :password, class: 'text-field', autofocus: true, placeholder: 'PASSWORD' %><br />
   <%= f.password_field :password_confirmation, class: 'text-field', autofocus: true, placeholder: 'PASSWORD AGAIN' %><br />
-  <%= f.submit 'register', class: 'btn-large btn2'  %>
+  <%= f.submit 'REGISTER', class: 'btn-large btn2'  %>
 <% end %>
+<h2>OR</h2>
+<%= button_to 'LOG IN', '/login', class: 'btn-large' %>
+
 </div>

@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   #############################################
 
   def login
+    # redirect_to '/'
   end
 
 end

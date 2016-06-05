@@ -1,4 +1,14 @@
+<button class="btn-logout"><a href="/logout">LOGOUT</a></button>
+<div class='header-area'>
+<% if current_user %>
+    <div class="title-position">
+      <h1><span>TOP 5 MOVIE LISTS<span></h1>
+      <div><button class="btn-small"><a href="/home">BACK TO SEARCH</a></button></div>
+  </div>
+<% end %>
+</div>
 
+<div class="frames">
 <div class="stretch-users-global">
 <div class='top5-list-global'>
 <% @top_movies.each do |username, movie| %>
@@ -11,4 +21,8 @@
   </div>
 <% end %>
 </div>
+</div>
+
+<iframe class="iframe" src="/mytop5" width="160" height="1354" frameBorder="0" scrolling="no" frameBorder="0">
+</iframe>
 </div>
