@@ -3,6 +3,7 @@ class MoviesController < ApplicationController
 #############################################
 
   def remove_from_top
+    # CHANGE TOP-5 BOOLEAN TO FALSE - REMOVES IT FROM LIST
     Movie.find(params[:id]).update(:top5 => false)
     redirect_to mytop5_path
     # flash[:message] = "."
@@ -11,49 +12,50 @@ class MoviesController < ApplicationController
 #############################################
 
   def index
-    # grabbing API
+    # passing user search input into API
     @results = HTTParty.get "http://www.omdbapi.com/?s=#{params[:searchterm]}"
+    # grabing the unique movie code for show action
     @imdbID = @results['imdbID']
-    if :searchterm.nil?
-      flash[:message] = "YOUR SEARCH RETURNED NO RESULTS"
-    end
+
   end
 
 #############################################
 
   def show
+    # passing chosen movie code into API imdbID search
     @pick = HTTParty.get "http://www.omdbapi.com/?i=#{params[:imdbID]}"
   end
 
 #############################################
 
   def create
-
-# checking top-five in SCOPE (find in model) to stop users adding more than 5
+  # checking "top-five" as defined in SCOPE (find this in movie.rb) stops users adding more than 5 movies
   if current_user.movies.top_five.length >= 5
+    # if list is full flash message and do nothing
     flash[:message] = "YOUR TOP 5 LIST IS FULL! REMOVE SOME TO ADD MORE."
     redirect_to '/home'
     return
   elsif current_user.movies.top_five.length >= 4
-    flash[:message] = "YOUR LIST IS COMPLETE!"
+    #this elsif tells the user not to add any more AFTER this one.
+
+    # make a new request to omdb api to get the information from the movie again.
     @pick = HTTParty.get "http://www.omdbapi.com/?i=#{params[:id]}"
     movie = Movie.new
     movie.actors = @pick['Actors']
     movie.imgurl = @pick["Poster"]
     movie.director = @pick["Director"]
     movie.imdbID = @pick["imdbID"]
-
-    # set it to tru e by default
+    # set top5 to true by default
     movie.top5 = true
     #associate the user
     movie.user_id = current_user.id
-
+    flash[:message] = "YOUR LIST IS COMPLETE!"
     movie.save
     redirect_to '/home'
     return
   end
 
-# make a new request to omdb api to get the information from the movie again.
+    # make a new request to omdb api to get the information from the movie again.
     @pick = HTTParty.get "http://www.omdbapi.com/?i=#{params[:id]}"
     movie = Movie.new
     movie.actors = @pick['Actors']
@@ -61,9 +63,9 @@ class MoviesController < ApplicationController
     movie.director = @pick["Director"]
     movie.imdbID = @pick["imdbID"]
 
-    # set it to tru e by default
+    # set top5 to true by default
     movie.top5 = true
-    #associate the user
+    # associate the user
     movie.user_id = current_user.id
 
     movie.save
@@ -76,6 +78,7 @@ class MoviesController < ApplicationController
 #############################################
 
   def my_top_5
+    # get current user and and pass it to the view
     @user = User.find(current_user.id)
   end
 
@@ -83,9 +86,9 @@ class MoviesController < ApplicationController
 
   def show_alltop5
     @user = User.find(current_user.id)
-    # attached the user with the movies that top5 = true
+    # CROSS DB stuff  - attaches the user with the movies that have top5 = true
     @top_movies = Movie.joins(:user).where(:top5 => true)
-    # put them into a list associated with that user
+    # put them into a list associated with that user - via helper function
     @top_movies = @top_movies.group_by {|i| i.user.username }
   end
 
@@ -97,9 +100,6 @@ class MoviesController < ApplicationController
 #############################################
 
   def home
-    #if current_user.nil?
-    #   redirect_to login_path
-    # end
   end
 
 #############################################

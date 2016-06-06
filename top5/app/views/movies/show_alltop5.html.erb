@@ -6,6 +6,7 @@
 <div class='header-area'>
   <% if current_user %>
     <div class="title-position">
+      <!-- put top 5 heading -->
       <h1><span>TOP 5 MOVIE LISTS<span></h1>
       <div><button class="btn-small"><a href="/home">BACK TO SEARCH</a></button></div>
     </div>
@@ -13,20 +14,24 @@
 </div>
 
 <div class="frames">
+  <!-- put background color behind the list -->
   <div class="stretch-users-global">
+    <!-- display each list in a row -->
     <div class='top5-list-global'>
     <% @top_movies.each do |username, movie| %>
+    <!-- display username and movie images in a column -->
     <div class="list-all-separately">
       <div class="global-username"><%= username.upcase %>'S<br /> TOP 5 MOVIES</div><br>
       <% movie.each do |put| %>
+      <!-- pass unique code for show page on click -->
         <a href="/mresults/<%= put["imdbID"] %>">
+          <!-- show movie poster images -->
         <img class='top5-images-global' src="<%= put.imgurl %>">
       <% end %>
       </div>
     <% end %>
   </div>
 </div>
-
-  <iframe class="iframe" src="/mytop5" width="160" height="1241" frameBorder="0" scrolling="no" frameBorder="0">
-  </iframe>
+  <!-- USERS TOP 5 ROUTED TO RIGHT SIDE IFRAME -->
+  <iframe class="iframe" src="/mytop5" width="160" height="1241" frameBorder="0" scrolling="no" frameBorder="0"></iframe>
 </div>

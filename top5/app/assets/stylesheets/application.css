@@ -1,43 +1,10 @@
+
 body {
   font-family: 'Open Sans', sans-serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   background: #fcf7c7;
-}
-
-.frames{
-  display: flex;
-}
-
-.iframe{
-  border-left: 3px dashed #3a3431;
-  position: absolute;
-  right: 0;
-  top: -333px;
-}
-.stretch{
-  height: 1500px;
-  width: 160px;
-  background:url('movie_placeholder.jpg');
-  background-position: -21px 66px;
-  background-repeat: no-repeat;
-  background-color: #38322f;
-}
-
-.stretch-users-global{
-  background-color: #13747d;
-  height: 720px;
-  width: 3000px;
-}
-
-.flash{
-  margin: 30px 150px;
-  font-size: 70px;
-  line-height: 1;
-  font-weight:800;
-  color: #e5e1b7;
- font-family: 'Teko', sans-serif;
 }
 
 
@@ -86,7 +53,6 @@ BUTTONS
   color: white;
 }
 
-
 .btn-large {
   font-family: 'Teko', sans-serif;
   color: white;
@@ -104,7 +70,6 @@ BUTTONS
 .btn-large:hover{
   background: #0abfbc;
 }
-
 
 .btn2{
   background: #0abfbc;
@@ -189,8 +154,6 @@ BUTTONS
   color: #d0cca2;
 }
 
-
-
 input.text-field, placeholder {
   font-family: 'Teko', sans-serif;
   color: #d0cca2;
@@ -220,12 +183,9 @@ input:-webkit-autofill {
   font-size: 15px;
 }
 
-
 .off{
   opacity: 0;
 }
-
-
 
 /*/////////////////////////////////////
 LAYOUT
@@ -361,7 +321,6 @@ LAYOUT
   transform: scale(1.02);
 }
 
-
 .search-layout{
   margin-top: 30px;
   display:flex;
@@ -375,11 +334,49 @@ LAYOUT
   flex-flow: column;
 }
 
+.frames{
+  display: flex;
+}
 
+.iframe{
+  border-left: 3px dashed #3a3431;
+  position: absolute;
+  right: 0;
+  top: -333px;
+}
+.stretch{
+  height: 1500px;
+  width: 160px;
+  background:url('movie_placeholder.jpg');
+  background-position: -21px 66px;
+  background-repeat: no-repeat;
+  background-color: #38322f;
+}
+
+.stretch-users-global{
+  background-color: #13747d;
+  height: 720px;
+  width: 3000px;
+}
+
+.flash{
+  margin: 30px 150px 10px 150px;
+  font-size: 70px;
+  line-height: 1;
+  font-weight:800;
+  color: #e5e1b7;
+  font-family: 'Teko', sans-serif;
+}
+
+.l2{
+  margin: 10px 150px;
+  color:#beba97;
+}
 
 /*/////////////////////////////////////
-TEXT
+TEXT STYLES
 /////////////////////////////////////*/
+
 .local-username{
   font-size: 20px;
   font-family: 'Teko', sans-serif;
@@ -403,6 +400,10 @@ a:link, a:active, a:visited {
   text-decoration: none;
 }
 
+p {
+  margin: 10px 0 5px 10px;
+}
+
 .small-text{
   margin: 0;
   font-size: 12px;
@@ -418,8 +419,6 @@ a:link, a:active, a:visited {
   text-decoration: none;
   color: #d3cfa3;
 }
-
-
 
 h1 {
   font-family: 'Teko', sans-serif;

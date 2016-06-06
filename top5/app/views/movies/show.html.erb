@@ -6,21 +6,21 @@
 <div class='header-area'>
   <% if current_user %>
     <div class="title-position">
+      <!-- put user name in heading -->
       <h1><%= current_user.username.upcase %>'S <span>TOP 5 MOVIES<span></h1>
       <div><button class="btn-small"><a href="/showall">ALL TOP 5s</a></button></div>
     </div>
   <% end %>
 </div>
 
-  <% if flash[:error] %>
-    <p><%= flash[:error] %></p>
-  <% end %>
-
 <div class='show-container'>
   <div>
+    <!-- back to search option -->
     <div><button class="btn-small-showpage"><a href="/home">BACK TO SEARCH</a></button></div>
+    <!-- add to top-5 options -->
     <%= button_to "ADD TO TOP 5", { :controller => 'movies', :action => 'create', :id => @pick["imdbID"] }, {class: 'btn-small-showpage' } %>
     </div>
+    <!-- show large poster and details -->
   <div><img class="show-poster" src= "<%= @pick["Poster"]%>"></div>
     <div class='show-details'>
       <p>Title: <span><%= @pick["Title"] %></span></p>
@@ -31,5 +31,6 @@
       <p>Rating: <span><%= @pick["Rated"] %></span></p>
     </div>
   </div>
-  <iframe class="iframe" src="/mytop5" width="160" height="1241" frameBorder="0" scrolling="no" frameBorder="0" bgcolor="#38322f">
+  <!-- USERS TOP 5 ROUTED TO RIGHT SIDE IFRAME -->
+  <iframe class="iframe" src="/mytop5" width="160" height="1241" frameBorder="0" scrolling="no" frameBorder="0"></iframe>
 </div>

@@ -1,3 +1,4 @@
+
 <div class="top-flex">
   <button class="btn-logout"><a href="/logout">LOGOUT</a></button>
   <p class="small-text"><a href="/users/edit">change your details</a></p>
@@ -6,6 +7,7 @@
 <div class='header-area'>
   <% if current_user %>
     <div class="title-position">
+      <!-- put user name in heading -->
       <h1><%= current_user.username.upcase %>'S <span>TOP 5 MOVIES<span></h1>
       <div><button class="btn-small"><a href="/showall">ALL TOP 5s</a></button></div>
     </div>
@@ -18,16 +20,23 @@
       <%= text_field_tag :searchterm, "", class: 'text-field', autofocus: true, placeholder: 'SEARCH' %>
       <%= submit_tag "SUBMIT", class: 'btn-large btn-thin' %><br>
     <% end %>
+
     <div class="search-layout">
-    <% @results["Search"].each do |put| %>
-      <div class="movie-layout">
-        <a href="/mresults/<%= put["imdbID"]%>">
-          <img class='search-images' src= "<%= put["Poster"]%>"></a>
-          <%= button_to "ADD", {:controller => 'movies', :action => 'create', :id => put["imdbID"] }, {class: 'btn-addto5' } %>
-      </div>
+      <!-- check if api result response is coming back empty to avoid error-->
+    <% if @results.length > 2 %>
+      <% @results["Search"].each do |put| %>
+        <div class="movie-layout">
+          <a href="/mresults/<%= put["imdbID"]%>">
+            <img class='search-images' src= "<%= put["Poster"]%>"></a>
+            <%= button_to "ADD", {:controller => 'movies', :action => 'create', :id => put["imdbID"] }, {class: 'btn-addto5' } %>
+        </div>
+        <% end %>
+      <% else %>
+          <div class="flash"><%= flash[:message] = "YOUR SEARCH RETURNED NO RESULTS..." %></div>
+          <div class="flash l2"><%= flash[:message] = "TRY AGAIN!" %></div>
       <% end %>
     </div>
   </div>
-  <iframe class="iframe" src="/mytop5" width="160" height="1241" frameBorder="0" scrolling="no" frameBorder="0">
-  </iframe>
+  <!-- USERS TOP 5 ROUTED TO RIGHT SIDE IFRAME -->
+  <iframe class="iframe" src="/mytop5" width="160" height="1241" frameBorder="0" scrolling="no" frameBorder="0"></iframe>
 </div>
